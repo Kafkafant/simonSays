@@ -1,9 +1,9 @@
-
 var buttonColors = ["red", "blue", "green", "yellow"];
 var randomChosenColor;
 var gamePattern = [];
 var userClickedPattern = [];
 var level = 0;
+//var spaceBarPressed = false;
 
 
 //plays any sound
@@ -66,6 +66,7 @@ function nextSequence(){
   })
 
 
+
 //adds the clicked colors to an array
 $(".btn").click(function(event){
   if(level>0){
@@ -109,17 +110,22 @@ $("body").on("keydown", function(event){
     var whichKey = event.key;
 
     switch(whichKey){
-      case "q": userChosenColor = "green";
+      case "q": userChosenColor = "green";                                //userClickedPattern.push... added every single time so no other keys get registered
+                userClickedPattern.push(userChosenColor);
+                playSound(userChosenColor);
       break;
       case "w": userChosenColor = "red";
+                userClickedPattern.push(userChosenColor);
+                playSound(userChosenColor);
       break;
       case "a": userChosenColor = "yellow";
+                userClickedPattern.push(userChosenColor);
+                playSound(userChosenColor);
       break;
       case "s": userChosenColor = "blue";
+                userClickedPattern.push(userChosenColor);
+                playSound(userChosenColor);
     }
-
-    userClickedPattern.push(userChosenColor);
-    playSound(userChosenColor);
 
     //flash-animation
     function animatePress(currentColor){
