@@ -25,6 +25,7 @@ function checkAnswer(currentLevel){
       setTimeout(function(){$("body").removeClass("game-over");},100)
       $("h1").text("Game over! Press SPACE to start.");
       gamePattern = [];
+      level = 0;
     }
 }
 
